@@ -2,14 +2,17 @@
 import React from 'react';
 // import Register from './Register';
 import '../App.css';
-import Register from './Register';
+// import Register from './Register';
 
-export default function landingpage() {
+export default function Home() {
     return (
+        <center>
         <div>
             
-            <button onClick={Register}>Register</button>
+
+           THIS IS THE HOME PAGE
 
         </div>
+        </center>
     )
 }

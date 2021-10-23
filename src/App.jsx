@@ -2,75 +2,97 @@
 import React from 'react';
 // import './components/Login'
 import './App.css';
-import {Login} from './components/Login.jsx';
-import Landingpage from './components/Landingpage.jsx';
-import {Register} from './components/Register.jsx';
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isLogginActive: true
-    };
-  }
+import Home from './components/Home.jsx';
+import Login from './components/Login.jsx';
+import Register from './components/Register.jsx';
+import EmployeeLogin from './components/EmployeeLogin.jsx';
+import{BrowserRouter as Router,Route, Switch} from 'react-router-dom'
+import NavBar from './components/NavBar'
 
-  componentDidMount() {
-    //Add .right by default
-    this.rightSide.classList.add("right");
-  }
+// class App extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       isLogginActive: true
+//     };
+//   }
 
-  changeState() {
-    const { isLogginActive } = this.state;
+//   componentDidMount() {
+//     //Add .right by default
+//     this.rightSide.classList.add("right");
+//   }
 
-    if (isLogginActive) {
-      this.rightSide.classList.remove("right");
-      this.rightSide.classList.add("left");
-    } else {
-      this.rightSide.classList.remove("left");
-      this.rightSide.classList.add("right");
-    }
-    this.setState(prevState => ({ isLogginActive: !prevState.isLogginActive }));
-  }
+//   changeState() {
+//     const { isLogginActive } = this.state;
 
-  render() {
-    const { isLogginActive } = this.state;
-    const current = isLogginActive ? "Register" : "Login";
-    const currentActive = isLogginActive ? "login" : "register";
-    return (
-      <div className="App">
-        <div className="login">
-          <div className="container" ref={ref => (this.container = ref)}>
-            {isLogginActive && (
-              <Login containerRef={ref => (this.current = ref)} />
-            )}
-            {!isLogginActive && (
-              <Register containerRef={ref => (this.current = ref)} />
-            )}
-          </div>
-          <RightSide
-            current={current}
-            currentActive={currentActive}
-            containerRef={ref => (this.rightSide = ref)}
-            onClick={this.changeState.bind(this)}
-          />
-        </div>
-      </div>
-    );
-  }
+//     if (isLogginActive) {
+//       this.rightSide.classList.remove("right");
+//       this.rightSide.classList.add("left");
+//     } else {
+//       this.rightSide.classList.remove("left");
+//       this.rightSide.classList.add("right");
+//     }
+//     this.setState(prevState => ({ isLogginActive: !prevState.isLogginActive }));
+//   }
+
+//   render() {
+//     const { isLogginActive } = this.state;
+//     const current = isLogginActive ? "Register" : "Login";
+//     const currentActive = isLogginActive ? "login" : "register";
+//     return (
+//       <div className="App">
+//         <div className="login">
+//           <div className="container" ref={ref => (this.container = ref)}>
+//             {isLogginActive && (
+//               <Login containerRef={ref => (this.current = ref)} />
+//             )}
+//             {!isLogginActive && (
+//               <Register containerRef={ref => (this.current = ref)} />
+//             )}
+//           </div>
+//           <RightSide
+//             current={current}
+//             currentActive={currentActive}
+//             containerRef={ref => (this.rightSide = ref)}
+//             onClick={this.changeState.bind(this)}
+//           />
+//         </div>
+//       </div>
+//     );
+//   }
+// }
+
+// const RightSide = props => {
+//   return (
+//     <div
+//       className="right-side"
+//       ref={props.containerRef}
+//       onClick={props.onClick}
+//     >
+//       <div className="inner-container">
+//         <div className="text">{props.current}</div>
+//       </div>
+//     </div>
+//   );
+// };
+
+function App() {
+  return (
+    <Router>
+      <NavBar />
+    <div >
+      <Switch>
+      <Route exact path="/" component={Home} />
+      <Route exact path="/Login" component={Login} />
+      <Route exact path="/Register" component={Register} />
+      <Route exact path="/EmployeeLogin" component={EmployeeLogin} />
+      {/* <Route component={NotFound} /> */}
+      </Switch>
+    </div>
+    </Router>
+  );
 }
 
-const RightSide = props => {
-  return (
-    <div
-      className="right-side"
-      ref={props.containerRef}
-      onClick={props.onClick}
-    >
-      <div className="inner-container">
-        <div className="text">{props.current}</div>
-      </div>
-    </div>
-  );
-};
 
 export default App;
 
