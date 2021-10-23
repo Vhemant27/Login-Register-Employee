@@ -1,9 +1,9 @@
 
 import React from 'react'
 import logo from './google.png'
+import { Link } from 'react-router-dom'
 
-
-export class Register extends React.Component {
+export class register extends React.Component {
   // constructor(props) {
   //   super(props);
   // }
@@ -12,7 +12,8 @@ export class Register extends React.Component {
 
  render() {
     return (
-      <div className="base-container" ref={this.props.containerRef}>
+      <div>
+      <form action="/register" method="POST" className="base-container" ref={this.props.containerRef}>
      
       <div className="content">
         <div className="image">
@@ -38,19 +39,28 @@ export class Register extends React.Component {
           </div>
         </div>
       </div>
-      <div className="footer">
 
+      <div className="footer">
       <button type ="reset" className="btn">Reset</button>
     &nbsp;
-
-        <button type="button" className="btn">
+        {/* <button type="button" className="btn">
           Register
-        </button>
+        </button> */}
+        <button type ="submit" className="btn">
+        Register
+          </button>
+        
       </div>
-    </div>
-            
+    </form>
+    <center>
+    <Link to="/login">Login</Link>
+<br></br>
+<Link to="/employee">Employee Login</Link>
+</center>
+            </div>
+
     );
 }
 }
 
-export default Register
+export default register

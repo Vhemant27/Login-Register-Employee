@@ -1,8 +1,10 @@
 
 import React from 'react'
 import logo from './google.png'
+import { Link } from 'react-router-dom'
 
-export class EmployeeLogin extends React.Component {
+
+export class employee extends React.Component {
   // constructor(props) {
   //   super(props);
   // }
@@ -11,7 +13,8 @@ export class EmployeeLogin extends React.Component {
 
  render() {
     return (
-      <div className="base-container" ref={this.props.containerRef}>
+      <div>
+      <form action="/employee" method="POST" className="base-container" ref={this.props.containerRef}>
      
       <div className="content">
         <div className="image">
@@ -42,14 +45,22 @@ export class EmployeeLogin extends React.Component {
       <button type ="reset" className="btn">Reset</button>
     &nbsp;
 
-        <button type="button" className="btn">
+        <button type="submit" className="btn">
           Login
         </button>
       </div>
-    </div>
+
+    </form>
             
+<br></br>
+<center>
+<Link to="/login">Login</Link>
+<br></br>
+<Link to="/register">Register</Link>
+</center>
+            </div>
     );
 }
 }
 
-export default EmployeeLogin
+export default employee;

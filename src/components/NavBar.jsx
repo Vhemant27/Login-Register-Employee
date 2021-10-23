@@ -22,7 +22,7 @@ const NavBar = () => {
                     </Link>
                     </div>
                     <div>
-                    <Link to="/EmployeeLogin" >
+                    <Link to="/employee" >
                         Employee Login
                     </Link>
                     </div>

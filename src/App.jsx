@@ -3,9 +3,9 @@ import React from 'react';
 // import './components/Login'
 import './App.css';
 import Home from './components/Home.jsx';
-import Login from './components/Login.jsx';
-import Register from './components/Register.jsx';
-import EmployeeLogin from './components/EmployeeLogin.jsx';
+import login from './components/login.jsx';
+import register from './components/register.jsx';
+import employee from './components/employee.jsx';
 import{BrowserRouter as Router,Route, Switch} from 'react-router-dom'
 import NavBar from './components/NavBar'
 
@@ -83,9 +83,9 @@ function App() {
     <div >
       <Switch>
       <Route exact path="/" component={Home} />
-      <Route exact path="/Login" component={Login} />
-      <Route exact path="/Register" component={Register} />
-      <Route exact path="/EmployeeLogin" component={EmployeeLogin} />
+      <Route exact path="/login" component={login} />
+      <Route exact path="/register" component={register} />
+      <Route exact path="/employee" component={employee} />
       {/* <Route component={NotFound} /> */}
       </Switch>
     </div>
